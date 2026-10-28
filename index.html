@@ -5,244 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nhà Chờ Phục Sinh 望復活堂 - Giáo Xứ Thánh Phanxicô Xaviê Chợ Lớn (Nhà thờ Cha Tam)</title>
   
-  <!-- Font chữ Á Đông & Sang trọng -->
+  <!-- Thư viện Font & PapaParse -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- Thư viện đọc CSV PapaParse -->
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-  <style>
-    :root {
-      --primary-color: #8B0000; /* Đỏ son Á Đông */
-      --secondary-color: #D4AF37; /* Vàng kim nhạt */
-      --bg-color: #FAF6EF; /* Màu giấy xuyến / Kem cổ */
-      --card-bg: #FFFFFF;
-      --text-color: #2C2C2C;
-      --border-color: #D3C4B3;
-      --accent-color: #5C0606;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    /* Header mang đậm nét truyền thống Á Đông Công giáo */
-    header {
-      background: linear-gradient(135deg, #600000 0%, var(--primary-color) 100%);
-      color: #FFF8E7;
-      text-align: center;
-      padding: 2.5rem 1rem 2rem 1rem;
-      border-bottom: 4px solid var(--secondary-color);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      position: relative;
-    }
-
-    header::after {
-      content: "CẦU NGUYỆN CHO CÁC LINH HỒN ✝ TÌM VỊ TRÍ HÀI CỐT THÂN NHÂN";
-      display: block;
-      font-size: 1.8rem;
-      color: var(--secondary-color);
-      margin-top: 0.5rem;
-    }
-
-    header h1 {
-      font-family: 'Cinzel', 'Noto Serif TC', serif;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    header p.sub-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.1rem;
-      color: var(--secondary-color);
-    }
-
-    header p.desc {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem 1rem;
-    }
-
-    /* Khung Tìm Kiếm */
-    .search-box {
-      background: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .search-input-group {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .search-input-group input {
-      flex: 1;
-      min-width: 240px;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      outline: none;
-      background-color: #FAF9F6;
-    }
-
-    .search-input-group input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
-    }
-
-    .stats {
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-      color: #666;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* Thẻ hiển thị Hũ cốt / Linh vị */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-top: 4px solid var(--primary-color);
-      border-radius: 8px;
-      padding: 1.2rem;
-      position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(139, 0, 0, 0.1);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 1px dashed var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .saint-name {
-      font-size: 0.85rem;
-      color: var(--primary-color);
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .full-name {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent-color);
-    }
-
-    .location-badge {
-      background-color: #FFF3E0;
-      color: #E65100;
-      border: 1px solid #FFE0B2;
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      text-align: right;
-      line-height: 1.3;
-    }
-
-    .card-body p {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: #444;
-    }
-
-    .card-body .dates {
-      color: #555;
-    }
-
-    .card-body .anniversary {
-      color: var(--primary-color);
-      font-weight: 500;
-    }
-
-    .card-body .notes {
-      font-style: italic;
-      color: #777;
-      margin-top: 0.4rem;
-      border-top: 1px dotted #eee;
-      padding-top: 0.3rem;
-    }
-
-    /* Loading Spinner & Trạng thái */
-    .loading-status {
-      text-align: center;
-      padding: 3rem 1rem;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      border-top: 1px solid var(--border-color);
-      font-size: 0.85rem;
-      color: #777;
-    }
-
-    footer p.prayer {
-      font-family: 'Noto Serif TC', serif;
-      font-style: italic;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-  </style>
 </head>
 <body>
 
   <header>
-    <h1>Nhà Chờ Phục Sinh | 望復活堂</h1>
+    <div class="header-banner-text">CẦU NGUYỆN CHO CÁC LINH HỒN ✝ TÌM VỊ TRÍ HÀI CỐT THÂN NHÂN</div>
+    <div class="header-banner-cn">望復活堂</div>
+    <h1>Nhà Chờ Phục Sinh</h1>
     <p class="sub-title">Giáo xứ Thánh Phanxicô Xaviê Chợ Lớn | 堤岸聖方濟各沙勿略華人天主堂</p>
-    <p class="desc">"Chính Thầy là sự sống lại và là sự sống" (Ga 11,25)</p>
+    <p class="desc">"Với tấm thân này, tôi sẽ được ngắm nhìn Thiên Chúa." (G 19,26)</p>
   </header>
 
   <div class="container">
     <!-- Thanh Tìm Kiếm -->
     <div class="search-box">
       <div class="search-input-group">
-        <input type="text" id="searchInput" placeholder="Nhập Tên thánh, Họ tên, Ngày giỗ, Mã ô hoặc Vị trí (Lô/Dãy/Hộc)..." onkeyup="filterData()">
+        <input type="text" id="searchInput" placeholder="Nhập Tên thánh, Họ tên, Ngày giỗ, Mã ô hoặc Vị trí (Lô/Tầng/Ngăn)..." onkeyup="filterData()">
       </div>
       <div class="stats">
         <span id="recordCount">Đang tải dữ liệu...</span>
@@ -266,7 +51,6 @@
 
     let allData = [];
 
-    // Tải dữ liệu bằng PapaParse
     window.addEventListener('DOMContentLoaded', () => {
       Papa.parse(csvUrl, {
         download: true,
@@ -278,18 +62,16 @@
           displayData(allData);
         },
         error: function(err) {
-          document.getElementById('loading').innerHTML = '<span style="color: red;">Không thể tải dữ liệu. Vui lòng kiểm tra lại liên kết Google Sheet!</span>';
+          document.getElementById('loading').innerHTML = '<span style="color: red;">Không thể tải dữ liệu. Vui lòng kiểm tra lại liên kết Dịch vụ công Công Giáo</span>';
         }
       });
     });
 
-    // Hàm bỏ dấu tiếng Việt để tìm kiếm chính xác hơn
     function removeAccents(str) {
       if (!str) return '';
       return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
     }
 
-    // Hiển thị thẻ danh sách
     function displayData(data) {
       const grid = document.getElementById('resultsGrid');
       const countEl = document.getElementById('recordCount');
@@ -303,7 +85,6 @@
       }
 
       data.forEach(item => {
-        // Ánh xạ chính xác theo tiêu đề cột trong Google Sheet của anh
         const tenThanh = item['tenThanh'] || '';
         const hoTen = item['hoTen'] || '';
         const ngaySinh = item['ngaySinh'] || '';
@@ -314,11 +95,10 @@
         const soHoc = item['soHoc'] || '';
         const ghichu = item['ghichu'] || '';
 
-        // Tạo nhãn vị trí tổng hợp
         let locationParts = [];
-        if (khu) locationParts.push(`Khu ${khu}`);
-        if (day) locationParts.push(`Dãy ${day}`);
-        if (soHoc) locationParts.push(`Hộc ${soHoc}`);
+        if (khu) locationParts.push(`Lô ${khu}`);
+        if (day) locationParts.push(`Tầng ${day}`);
+        if (soHoc) locationParts.push(`Ngăn ${soHoc}`);
         const locationText = locationParts.join(' - ') || 'Chưa định vị';
 
         const card = document.createElement('div');
@@ -341,7 +121,6 @@
       });
     }
 
-    // Tìm kiếm / Lọc kết quả (Hỗ trợ tìm có dấu & không dấu)
     function filterData() {
       const rawQuery = document.getElementById('searchInput').value.trim();
       const query = removeAccents(rawQuery.toLowerCase());
