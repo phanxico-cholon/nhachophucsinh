@@ -1,16 +1,16 @@
-/* Import đầy đủ các bộ font cần thiết */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
-
-@import url('https://fonts.cdnfonts.com/css/chiron-goround-tc');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
 
 :root {
-  --primary-color: #8B0000; /* Đỏ son Á Đông */
-  --secondary-color: #D4AF37; /* Vàng kim nhạt */
-  --bg-color: #FAF6EF; /* Màu giấy xuyến / Kem cổ */
+  --primary: #8B0000;
+  --primary-dark: #5c0000;
+  --secondary: #C5A059;
+  --bg-color: #F8F5EE;
   --card-bg: #FFFFFF;
-  --text-color: #2C2C2C;
-  --border-color: #D3C4B3;
-  --accent-color: #5C0606;
+  --text-main: #2C2C2C;
+  --text-muted: #666666;
+  --border-color: #E2D9CE;
+  --badge-bg: #FDF3E7;
+  --badge-text: #B45309;
 }
 
 * {
@@ -20,115 +20,217 @@
 }
 
 body {
-  font-family: 'Be Vietnam Pro', 'Noto Serif TC', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
+  color: var(--text-main);
+  line-height: 1.5;
 }
 
-/* Header */
+/* Header trang nghiêm */
 header {
-  background: linear-gradient(135deg, #600000 0%, var(--primary-color) 100%);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
   color: #FFF8E7;
   text-align: center;
-  padding: 2.5rem 1rem 2rem 1rem;
-  border-bottom: 4px solid var(--secondary-color);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  position: relative;
-}
-
-header::after {
-  content: "┼";
-  display: block;
-  font-size: 1.8rem;
-  color: var(--secondary-color);
-  margin-top: 0.5rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  border-bottom: 4px solid var(--secondary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .header-banner-text {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
   font-weight: 700;
-  color: var(--secondary-color);
+  color: var(--secondary);
   margin-bottom: 0.2rem;
   text-transform: uppercase;
 }
 
 .header-banner-cn {
   font-family: 'Noto Serif TC', serif;
-  font-size: 0.85rem;
-  color: #FFF8E7;
-  opacity: 0.85;
-  margin-bottom: 0.8rem;
-  letter-spacing: 1px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
 }
 
 header h1 {
-  font-family: 'Playfair Display', 'Chiron GoRound TC', serif;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  margin-bottom: 0.3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
 }
 
 header p.sub-title {
-  font-family: 'Chiron GoRound TC', 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--secondary-color);
+  font-family: 'Noto Serif TC', sans-serif;
+  font-size: 1rem;
+  color: var(--secondary);
+  margin-bottom: 0.4rem;
 }
 
 header p.desc {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-style: italic;
-  opacity: 0.95;
-  margin-top: 0.5rem;
+  opacity: 0.9;
 }
 
-/* Main Container */
+/* Container chính */
 .container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.2rem 1rem;
 }
 
-/* Khung Tìm Kiếm */
+/* Khung tìm kiếm chuyên nghiệp */
 .search-box {
   background: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.search-input-group {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
 
 .search-input-group input {
-  flex: 1;
-  min-width: 240px;
-  padding: 0.75rem 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
   font-size: 1rem;
-  font-family: 'Be Vietnam Pro', 'Noto Serif TC', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: 8px;
   outline: none;
-  background-color: #FAF9F6;
+  background-color: #FAFAFA;
+  transition: all 0.2s;
 }
 
 .search-input-group input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
+  border-color: var(--primary);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
 }
 
 .stats {
-  margin-top: 0.8rem;
-  font-size: 0.9rem;
-  color: #666;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* Danh sách thẻ kết quả rõ ràng */
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--primary);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.card-info {
+  flex: 1;
+}
+
+.saint-name {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.full-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0.1rem 0 0.4rem 0;
+}
+
+.card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.card-details span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.location-badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid #FDE68A;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+}
+
+/* Trạng thái tải */
+.loading-status {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+/* Footer trang nghiêm */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer p.prayer {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive cho điện thoại nhỏ */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+  .location-badge {
+    text-align: left;
+    display: inline-block;
+    align-self: flex-start;
+  }
 }
