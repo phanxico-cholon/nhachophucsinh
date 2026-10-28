@@ -1,343 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
-
-:root {
-  --primary: #8B0000;
-  --primary-dark: #5c0000;
-  --secondary: #C5A059;
-  --bg-color: #F8F5EE;
-  --card-bg: #FFFFFF;
-  --text-main: #2C2C2C;
-  --text-muted: #666666;
-  --border-color: #E2D9CE;
-  --badge-bg: #FDF3E7;
-  --badge-text: #B45309;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  line-height: 1.5;
-}
-
-/* Header trang nghiêm */
-header {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-  color: #FFF8E7;
-  text-align: center;
-  padding: 2rem 1rem 1.5rem 1rem;
-  border-bottom: 4px solid var(--secondary);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.header-banner-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: var(--secondary);
-  margin-bottom: 0.2rem;
-  text-transform: uppercase;
-}
-
-.header-banner-cn {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 0.8rem;
-  opacity: 0.8;
+/* Thanh điều hướng ngày tháng giỗ */
+.anniversary-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-}
-
-header p.sub-title {
-  font-family: 'Noto Serif TC', sans-serif;
+.nav-arrow-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  color: var(--primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   font-size: 1rem;
-  color: var(--secondary);
-  margin-bottom: 0.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-header p.desc {
-  font-family: 'Playfair Display', serif;
+.nav-arrow-btn:hover {
+  background-color: var(--primary);
+  color: #FFF8E7;
+}
+
+.date-title-box {
+  text-align: center;
+}
+
+.date-picker-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.date-picker-bar input[type="date"] {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: #FAFAFA;
+  color: var(--text-main);
+  outline: none;
+}
+
+.prayer-intro {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
   font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
   opacity: 0.9;
 }
 
-/* Container chính */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1.2rem 1rem;
-}
-
-/* Khung tìm kiếm chuyên nghiệp */
-.search-box {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-}
-
-.search-input-group input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  font-family: 'Be Vietnam Pro', sans-serif;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  outline: none;
-  background-color: #FAFAFA;
-  transition: all 0.2s;
-}
-
-.search-input-group input:focus {
-  border-color: var(--primary);
-  background-color: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
-}
-
-.stats {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Danh sách thẻ kết quả rõ ràng */
-.results-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--primary);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-}
-
-.card-info {
-  flex: 1;
-}
-
-.saint-name {
-  font-size: 0.8rem;
-  color: var(--primary);
+.anniversary-count-header {
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.full-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1A1A1A;
-  margin: 0.1rem 0 0.4rem 0;
-}
-
-.card-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.card-details span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.location-badge {
-  background-color: var(--badge-bg);
-  color: var(--badge-text);
-  border: 1px solid #FDE68A;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
-}
-
-/* Trạng thái tải */
-.loading-status {
-  text-align: center;
-  padding: 3rem 1rem;
-  font-size: 1rem;
-  color: var(--primary);
-}
-
-/* Footer trang nghiêm */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-footer p.prayer {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 600;
   font-size: 0.95rem;
   color: var(--primary);
-  margin-bottom: 0.5rem;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 1rem;
 }
 
-/* Responsive cho điện thoại nhỏ */
-@media (max-width: 600px) {
-  .card {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.6rem;
-  }
-  .location-badge {
-    text-align: left;
-    display: inline-block;
-    align-self: flex-start;
-  }
-}
-
-/* Gợi ý ban đầu khi chưa tìm kiếm */
-.search-hint {
-  text-align: center;
-  color: var(--text-muted);
-  padding: 2.5rem 1rem;
-  font-style: italic;
-  grid-column: 1 / -1;
-  background: var(--card-bg);
-  border: 1px dashed var(--border-color);
-  border-radius: 8px;
-}
-
-/* Khu vực Cầu Nguyện Hôm Nay */
-.today-anniversary-section {
-  background: #FFFDF9;
-  border: 2px solid var(--secondary);
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 3px 10px rgba(197, 160, 89, 0.15);
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--primary);
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.section-subtitle {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 1.2rem;
-  font-style: italic;
-}
-
-.today-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
+/* Thẻ thông tin giỗ linh hồn chuẩn mẫu */
 .today-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 10px;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  margin-bottom: 0.8rem;
+}
+
+.today-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  gap: 0.2rem;
 }
 
-.today-info .saint-name {
-  font-size: 0.75rem;
-  color: var(--primary);
-  font-weight: 700;
-  text-transform: uppercase;
+.today-lifespan {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
-.today-info .full-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1A1A1A;
-  margin: 0.1rem 0;
-}
-
-.today-loc {
-  font-size: 0.8rem;
-  color: #854D0E;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-}
-
-.prayer-actions {
-  display: flex;
-  gap: 0.4rem;
-  border-top: 1px solid #F3EDDE;
-  padding-top: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.action-btn {
+.anniversary-badge {
+  display: inline-block;
   background-color: #FDF3E7;
-  color: #92400E;
+  color: #B45309;
   border: 1px solid #FDE68A;
-  padding: 0.35rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  flex: 1;
-  text-align: center;
+  margin-top: 0.3rem;
+  align-self: flex-start;
 }
 
-.action-btn:hover {
-  background-color: var(--secondary);
-  color: #FFFFFF;
-  border-color: var(--secondary);
+.today-loc-box {
+  background-color: #FAF6EF;
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  min-width: 160px;
+}
+
+.loc-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.loc-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.1rem;
+}
+
+.today-card .prayer-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .today-card {
+    grid-template-columns: 1fr;
+  }
+  .today-loc-box {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
