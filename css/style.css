@@ -1,14 +1,11 @@
-/* --- VARIABLES & RESET --- */
 :root {
-  --primary-color: #5c3a21;     /* Nâu trầm trang nghiêm */
-  --accent-color: #c89d5c;      /* Vàng đồng accent */
-  --bg-color: #fdfbf7;          /* Tông nền giấy ngà ấm áp */
-  --card-bg: #ffffff;
-  --text-color: #2c2c2c;
-  --text-muted: #666666;
-  --border-color: #e2d9cc;
-  --font-serif: 'Merriweather', Georgia, serif;
-  --font-sans: 'Roboto', -apple-system, sans-serif;
+  --primary-color: #8B0000; /* Đỏ son Á Đông */
+  --secondary-color: #D4AF37; /* Vàng kim nhạt */
+  --bg-color: #FAF6EF; /* Màu giấy xuyến / Kem cổ */
+  --card-bg: #FFFFFF;
+  --text-color: #2C2C2C;
+  --border-color: #D3C4B3;
+  --accent-color: #5C0606;
 }
 
 * {
@@ -18,164 +15,200 @@
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding-bottom: 20px;
 }
 
-/* --- HEADER --- */
-.site-header {
-  background-color: var(--primary-color);
-  color: #ffffff;
+/* Header mang đậm nét truyền thống Á Đông Công giáo */
+header {
+  background: linear-gradient(135deg, #600000 0%, var(--primary-color) 100%);
+  color: #FFF8E7;
   text-align: center;
-  padding: 24px 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.cross-icon {
-  font-size: 24px;
-  color: var(--accent-color);
-  margin-bottom: 4px;
-}
-
-.site-header h1 {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
-.site-header .subtitle {
-  font-size: 0.85rem;
-  color: var(--accent-color);
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* --- MAIN & TABS --- */
-.site-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 16px;
-}
-
-.tab-nav {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--border-color);
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 10px 4px;
-  background: none;
-  border: none;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.tab-btn.active {
-  color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
-  font-weight: 700;
-}
-
-.tab-panel[hidden] {
-  display: none;
-}
-
-/* SEARCH UI & CARDS */
-.search-box {
+  padding: 2.5rem 1rem 2rem 1rem;
+  border-bottom: 4px solid var(--secondary-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   position: relative;
-  margin-bottom: 16px;
 }
 
-.search-box input {
-  width: 100%;
-  padding: 12px 40px 12px 16px;
+header::after {
+  content: "┼";
+  display: block;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  margin-top: 0.5rem;
+}
+
+header h1 {
+  font-family: 'Cinzel', 'Noto Serif TC', serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+header p.sub-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+header p.desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* Khung Tìm Kiếm */
+.search-box {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.search-input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-input-group input {
+  flex: 1;
+  min-width: 240px;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--card-bg);
+  border-radius: 6px;
   outline: none;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  background-color: #FAF9F6;
 }
 
-.search-box input:focus {
+.search-input-group input:focus {
   border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
 }
 
-.search-box button {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.status-message {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-}
-
-.card-grid {
+.stats {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #666;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
 }
 
-.info-card {
+/* Thẻ hiển thị Hũ cốt / Linh vị */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
   border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  padding: 1.2rem;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card-header .saint-name {
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(139, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.saint-name {
   font-size: 0.85rem;
-  color: var(--accent-color);
-  font-weight: 700;
+  color: var(--primary-color);
+  font-weight: 600;
   text-transform: uppercase;
 }
 
-.card-header .full-name {
-  font-family: var(--font-serif);
+.full-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.location-badge {
+  background-color: #FFF3E0;
+  color: #E65100;
+  border: 1px solid #FFE0B2;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.card-body .dates {
+  color: #555;
+}
+
+.card-body .anniversary {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.card-body .notes {
+  font-style: italic;
+  color: #777;
+  margin-top: 0.4rem;
+  border-top: 1px dotted #eee;
+  padding-top: 0.3rem;
+}
+
+/* Loading Spinner & Trạng thái */
+.loading-status {
+  text-align: center;
+  padding: 3rem 1rem;
   font-size: 1.1rem;
   color: var(--primary-color);
-  margin-bottom: 8px;
 }
 
-.badge-location {
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-/* FOOTER */
-.site-footer {
+/* Footer */
+footer {
   text-align: center;
-  padding: 20px 16px;
-  font-family: var(--font-serif);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: #777;
+}
+
+footer p.prayer {
+  font-family: 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 0.9rem;
   color: var(--primary-color);
-  margin-top: 30px;
+  margin-bottom: 0.5rem;
 }
