@@ -146,7 +146,7 @@ function displayAnniversaryByDate(ddMmStr, currentYear) {
       <div class="prayer-actions">
         <button class="action-btn" onclick="triggerAction(this, '🕯️ Đã thắp nến')">🕯️ Thắp nến</button>
         <button class="action-btn" onclick="triggerAction(this, '🌸 Đã tặng hoa')">🌸 Tặng hoa</button>
-        <button class="action-btn" onclick="triggerAction(this, '❤️ Đã thả tim')">❤️ Thả tim</button>
+        <button class="action-btn" onclick="triggerAction(this, '❤️ Đã bày tỏ')">❤️ Thương nhớ</button>
         <button class="action-btn" onclick="triggerAction(this, '🙏 Đã cầu nguyện')">🙏 Cầu nguyện</button>
       </div>
     `;
