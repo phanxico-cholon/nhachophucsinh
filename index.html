@@ -37,11 +37,25 @@
     <div id="loading" class="loading-status">Đang kết nối danh sách từ hệ thống Nhà Chờ Phục Sinh...</div>
     <div id="resultsGrid" class="results-grid"></div>
 
-    
-  <!-- Mục Cầu Nguyện Hôm Nay -->
-    <div id="todayAnniversarySection" class="today-anniversary-section" style="display: none;">
-      <div class="section-title">🕯️ CẦU NGUYỆN HÔM NAY (“Xin đừng quên chúng tôi”)</div>
-      <div class="section-subtitle">Cộng đoàn hiệp ý cầu nguyện cho các linh hồn có ngày giỗ trong ngày hôm nay:</div>
+    <!-- Mục Cầu Nguyện & Giỗ Theo Ngày -->
+    <div id="todayAnniversarySection" class="today-anniversary-section">
+      <div class="anniversary-header-nav">
+        <button class="nav-arrow-btn" onclick="changeDate(-1)" title="Ngày trước">❮</button>
+        <div class="date-title-box">
+          <div id="dateTitleMain" class="section-title">Hôm nay</div>
+          <div id="dateTitleSub" class="section-subtitle">Thứ Tư, ngày 28 tháng 10 năm 2026</div>
+        </div>
+        <button class="nav-arrow-btn" onclick="changeDate(1)" title="Ngày sau">❯</button>
+      </div>
+
+      <div class="date-picker-bar">
+        <label for="datePickerInput">Xem ngày khác:</label>
+        <input type="date" id="datePickerInput" onchange="onDateSelected(this.value)">
+      </div>
+
+      <p class="prayer-intro">Lạy Chúa, xin cho các linh hồn tôi tớ Chúa có tên dưới đây được nghỉ yên muôn đời, và ánh sáng ngàn thu chiếu soi cho các linh hồn ấy. Amen.</p>
+      
+      <div id="anniversaryCountHeader" class="anniversary-count-header">Đang tải danh sách...</div>
       <div id="todayAnniversaryList" class="today-grid"></div>
     </div>
     
