@@ -1,3 +1,8 @@
+/* Import đầy đủ các bộ font cần thiết */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+
+@import url('https://fonts.cdnfonts.com/css/chiron-goround-tc');
+
 :root {
   --primary-color: #8B0000; /* Đỏ son Á Đông */
   --secondary-color: #D4AF37; /* Vàng kim nhạt */
@@ -15,13 +20,13 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Be Vietnam Pro', 'Noto Serif TC', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
 
-/* Header mang đậm nét truyền thống Á Đông Công giáo */
+/* Header */
 header {
   background: linear-gradient(135deg, #600000 0%, var(--primary-color) 100%);
   color: #FFF8E7;
@@ -40,25 +45,44 @@ header::after {
   margin-top: 0.5rem;
 }
 
+.header-banner-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.header-banner-cn {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.85rem;
+  color: #FFF8E7;
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
 header h1 {
-  font-family: 'Cinzel', 'Noto Serif TC', serif;
+  font-family: 'Playfair Display', 'Chiron GoRound TC', serif;
   font-size: 1.8rem;
   letter-spacing: 1px;
-  text-transform: uppercase;
   margin-bottom: 0.3rem;
 }
 
 header p.sub-title {
-  font-family: 'Noto Serif TC', serif;
+  font-family: 'Chiron GoRound TC', 'Playfair Display', serif;
   font-size: 1.1rem;
   color: var(--secondary-color);
 }
 
 header p.desc {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-top: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
   font-style: italic;
+  opacity: 0.95;
+  margin-top: 0.5rem;
 }
 
 /* Main Container */
@@ -89,6 +113,7 @@ header p.desc {
   min-width: 240px;
   padding: 0.75rem 1rem;
   font-size: 1rem;
+  font-family: 'Be Vietnam Pro', 'Noto Serif TC', sans-serif;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   outline: none;
@@ -106,109 +131,4 @@ header p.desc {
   color: #666;
   display: flex;
   justify-content: space-between;
-}
-
-/* Thẻ hiển thị Hũ cốt / Linh vị */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.2rem;
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-top: 4px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 1.2rem;
-  position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(139, 0, 0, 0.1);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.saint-name {
-  font-size: 0.85rem;
-  color: var(--primary-color);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.full-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--accent-color);
-}
-
-.location-badge {
-  background-color: #FFF3E0;
-  color: #E65100;
-  border: 1px solid #FFE0B2;
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-align: right;
-  line-height: 1.3;
-}
-
-.card-body p {
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  color: #444;
-}
-
-.card-body .dates {
-  color: #555;
-}
-
-.card-body .anniversary {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.card-body .notes {
-  font-style: italic;
-  color: #777;
-  margin-top: 0.4rem;
-  border-top: 1px dotted #eee;
-  padding-top: 0.3rem;
-}
-
-/* Loading Spinner & Trạng thái */
-.loading-status {
-  text-align: center;
-  padding: 3rem 1rem;
-  font-size: 1.1rem;
-  color: var(--primary-color);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.85rem;
-  color: #777;
-}
-
-footer p.prayer {
-  font-family: 'Noto Serif TC', serif;
-  font-style: italic;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
 }
