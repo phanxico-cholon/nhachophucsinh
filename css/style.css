@@ -91,7 +91,7 @@ header {
 .parish-info h1 {
   font-family: 'Huninn', 'Noto Serif TC', sans-serif;
   font-size: 1.3rem;
-  color: var(--text-main);
+  color: var(--secondary);
   font-weight: 700;
 }
 
@@ -102,7 +102,7 @@ header {
 
 .header-banner-text {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   letter-spacing: 2px;
   font-weight: 700;
   color: var(--secondary);
@@ -112,7 +112,7 @@ header {
 
 .header-banner-cn {
   font-family: 'Noto Serif TC', serif;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   opacity: 0.85;
   margin-bottom: 0.6rem;
   color: #E2D9CE;
@@ -120,7 +120,7 @@ header {
 
 header p.desc {
   font-family: 'Playfair Display', serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-style: italic;
   opacity: 0.9;
   max-width: 750px;
@@ -219,4 +219,375 @@ header p.desc {
   border-color: var(--secondary);
 }
 
-.btn
+.btn-action {
+  padding: 0 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  transition: opacity 0.2s;
+}
+
+.btn-search {
+  background-color: var(--secondary);
+  color: #1a1625;
+}
+
+.btn-clear {
+  background-color: #3b334d;
+  color: var(--text-main);
+}
+
+.btn-action:hover {
+  opacity: 0.9;
+}
+
+.stats {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-hint {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  font-style: italic;
+  background: var(--card-bg);
+  border: 1px dashed var(--card-border);
+  border-radius: 10px;
+}
+
+/* Thẻ kết quả & Giỗ */
+.results-grid, .today-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.card, .today-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--secondary);
+  border-radius: 10px;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.card-info, .today-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.saint-name {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.full-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.card-details, .today-lifespan {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.anniversary-badge {
+  display: inline-block;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid #5a4220;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  align-self: flex-start;
+}
+
+.location-badge, .today-loc-box {
+  background-color: #171320;
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  min-width: 160px;
+}
+
+.loc-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.loc-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-top: 0.1rem;
+}
+
+.prayer-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px dashed var(--card-border);
+  padding-top: 0.8rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  background-color: #171320;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  text-align: center;
+}
+
+.action-btn:hover {
+  background-color: var(--secondary);
+  color: #1a1625;
+  border-color: var(--secondary);
+}
+
+/* Phần Cầu Nguyện Ngày Giỗ */
+.today-anniversary-section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.anniversary-intro-card {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1rem;
+}
+
+.cross-symbol {
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.anniversary-intro-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin: 0.2rem 0;
+}
+
+.anniversary-intro-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.anniversary-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.nav-arrow-btn {
+  background: #171320;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.nav-arrow-btn:hover {
+  background-color: var(--secondary);
+  color: #1a1625;
+}
+
+.date-title-box {
+  text-align: center;
+  flex: 1;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.date-picker-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.date-picker-bar input[type="date"] {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: #171320;
+  color: var(--text-main);
+  outline: none;
+}
+
+.prayer-intro {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.anniversary-count-header {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+/* Tab Gallery */
+.gallery-section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.gallery-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.8rem;
+}
+
+.gallery-header-row h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.gallery-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  background: #171320;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery-item:hover {
+  border-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+}
+
+.gallery-thumb {
+  font-size: 2rem;
+}
+
+.gallery-item span {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer p.prayer {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  margin-bottom: 0.8rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-tabs-bar {
+    grid-template-columns: 1fr;
+  }
+  .card, .today-card {
+    grid-template-columns: 1fr;
+  }
+  .search-main-row {
+    flex-direction: column;
+  }
+}
