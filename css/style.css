@@ -59,6 +59,7 @@ header {
   filter: drop-shadow(0 0 4px rgba(255, 179, 71, 0.3));
 }
 
+/* Hiệu ứng ngọn lửa cử động bập bùng */
 @keyframes flicker {
   0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.95; }
   50% { transform: scale(1.05) translate(-0.5px, -1px); opacity: 1; }
