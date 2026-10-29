@@ -47,12 +47,36 @@ header {
 .parish-info {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
   text-align: left;
 }
 
-.cross-icon {
-  font-size: 1.5rem;
+/* Kích thước nến nhỏ gọn, tinh tế bên góc trái */
+.candle {
+  width: 30px;
+  height: 68px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(255, 179, 71, 0.3));
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.95; }
+  50% { transform: scale(1.05) translate(-0.5px, -1px); opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.12); opacity: 0.95; }
+}
+
+.c-flame {
+  transform-origin: 20px 22.5px;
+  animation: flicker 2.2s infinite ease-in-out;
+}
+
+.c-glow {
+  transform-origin: 20px 20px;
+  animation: glowPulse 2.2s infinite ease-in-out;
 }
 
 .parish-info h2 {
@@ -228,7 +252,7 @@ header p.desc {
   border-radius: 10px;
 }
 
-/* Thẻ kết quả tra cứu & Giỗ */
+/* Thẻ kết quả & Giỗ */
 .results-grid, .today-grid {
   display: flex;
   flex-direction: column;
@@ -310,7 +334,6 @@ header p.desc {
   margin-top: 0.1rem;
 }
 
-/* Nút tương tác cầu nguyện */
 .prayer-actions {
   grid-column: 1 / -1;
   display: flex;
@@ -341,7 +364,7 @@ header p.desc {
   border-color: var(--secondary);
 }
 
-/* Phần Tab Cầu Nguyện Ngày Giỗ */
+/* Phần Cầu Nguyện Ngày Giỗ */
 .today-anniversary-section {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
