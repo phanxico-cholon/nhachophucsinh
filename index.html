@@ -15,58 +15,149 @@
 <body>
 
   <header>
+    <div class="header-top-row">
+      <div class="parish-info">
+        <span class="cross-icon">🕯️</span>
+        <div>
+          <h2>GIÁO XỨ THÁNH PHANCICÔ XAVIÊ CHỢ LỚN · 堤岸聖方濟各沙勿略華人天主堂</h2>
+          <p>25 Học Lạc, Phường Chợ Lớn, Tp.HCM, Việt Nam.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="header-banner-text">CẦU NGUYỆN CHO CÁC LINH HỒN ✝ TÌM VỊ TRÍ HÀI CỐT THÂN NHÂN</div>
-    <div class="header-banner-cn">望復活堂 · 堤岸聖方濟各沙勿略華人天主堂</div>
-    <h1>Nhà Chờ Phục Sinh</h1>
-    <p class="sub-title">Giáo xứ Thánh Phanxicô Xaviê Chợ Lớn</p>
+    <div class="header-banner-cn">VỌNG PHỤC SINH ĐƯỜNG · 望復活堂</div>
     <p class="desc">"Với tấm thân này, tôi sẽ được ngắm nhìn Thiên Chúa." (G 19,26)</p>
-    <p class="desc"></br>Tháng 11 như là lời thúc bách chúng ta nhớ đến các linh hồn trong đó có ông bà tổ tiên,</br>cha mẹ, anh chị em, bạn bè, những người thân, những người chúng ta quen biết</br>và ngay cả những linh hồn không có người thân nhớ tới họ...</br>Bạn và tôi có đáp trả lời mời gọi đó không? Có nhớ đến họ để cầu nguyện không?</p>
   </header>
 
   <div class="container">
-    <div class="search-box">
-      <div class="search-input-group">
-        <input type="text" id="searchInput" placeholder="🔍 Nhập Tên thánh, Họ tên, Ngày giỗ, Lô, Tầng hoặc Ngăn..." onkeyup="filterData()">
-      </div>
-      <div class="stats">
-        <span id="recordCount">Đang tải dữ liệu...</span>
-        <span>Cập nhật: 23/07/2011</span>
-      </div>
-    </div>
     
-    <div id="loading" class="loading-status">Đang kết nối danh sách từ hệ thống Nhà Chờ Phục Sinh...</div>
-    <div id="resultsGrid" class="results-grid"></div>
+    <!-- 3 Thẻ Tab Điều Hướng Chính -->
+    <div class="nav-tabs-bar">
+      <button class="tab-btn active" onclick="switchTab('search')" id="tabBtnSearch">
+        <span class="tab-icon">🔍</span> Tìm vị trí hũ tro cốt
+      </button>
+      <button class="tab-btn" onclick="switchTab('anniversary')" id="tabBtnAnniversary">
+        <span class="tab-icon">🕯️</span> Nhớ các linh hồn nhân ngày giỗ <span id="badgeCount" class="tab-badge">0</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('gallery')" id="tabBtnGallery">
+        <span class="tab-icon">🖼️</span> Hình ảnh Vọng Phục Sinh Đường
+      </button>
+    </div>
 
-    <!-- Mục Cầu Nguyện & Giỗ Theo Ngày -->
-    <div id="todayAnniversarySection" class="today-anniversary-section">
-      <div class="anniversary-header-nav">
-        <button class="nav-arrow-btn" onclick="changeDate(-1)" title="Ngày trước">❮</button>
-        <div class="date-title-box">
-          <div id="dateTitleMain" class="section-title">Hôm nay</div>
-          <div id="dateTitleSub" class="section-subtitle">Thứ Tư, ngày 28 tháng 10 năm 2026</div>
+    <!-- TAB 1: TÌM VỊ TRÍ -->
+    <div id="tabSearch" class="tab-content active">
+      <div class="search-box">
+        <div class="search-main-row">
+          <input type="text" id="searchInput" placeholder="🔍 Gõ tùy ý: tên, tên thánh, năm mất, mã số..." onkeyup="filterData()">
+          <button class="btn-action btn-search" onclick="filterData()">Tìm</button>
+          <button class="btn-action btn-clear" onclick="clearSearch()">Xóa tìm kiếm</button>
         </div>
-        <button class="nav-arrow-btn" onclick="changeDate(1)" title="Ngày sau">❯</button>
+        
+        <div class="stats">
+          <span id="recordCount">Đang tải dữ liệu...</span>
+          <span>Cập nhật: 23/07/2011</span>
+        </div>
       </div>
 
-      <div class="date-picker-bar">
-        <label for="datePickerInput">Xem ngày khác:</label>
-        <input type="date" id="datePickerInput" onchange="onDateSelected(this.value)">
-      </div>
-
-      <p class="prayer-intro">Lạy Chúa, xin cho các linh hồn tôi tớ Chúa có tên dưới đây được nghỉ yên muôn đời, và ánh sáng ngàn thu chiếu soi cho các linh hồn ấy. Amen.</p>
-      
-      <div id="anniversaryCountHeader" class="anniversary-count-header">Đang tải danh sách...</div>
-      <div id="todayAnniversaryList" class="today-grid"></div>
+      <div id="loading" class="loading-status">Đang kết nối danh sách từ hệ thống Nhà Chờ Phục Sinh...</div>
+      <div id="resultsGrid" class="results-grid"></div>
     </div>
-    
+
+    <!-- TAB 2: NHỚ CÁC LINH HỒN NHÂN NGÀY GIỖ -->
+    <div id="tabAnniversary" class="tab-content">
+      <div class="today-anniversary-section">
+        <div class="anniversary-intro-card">
+          <div class="cross-symbol">✝</div>
+          <h3>“Xin đừng quên chúng tôi”</h3>
+          <p>Cộng đoàn hiệp ý cầu nguyện cho các linh hồn có ngày giỗ trong ngày hôm nay</p>
+        </div>
+
+        <div class="anniversary-header-nav">
+          <button class="nav-arrow-btn" onclick="changeDate(-1)" title="Ngày trước">❮</button>
+          <div class="date-title-box">
+            <div id="dateTitleMain" class="section-title">Hôm nay</div>
+            <div id="dateTitleSub" class="section-subtitle">Đang tải ngày...</div>
+          </div>
+          <button class="nav-arrow-btn" onclick="changeDate(1)" title="Ngày sau">❯</button>
+        </div>
+
+        <div class="date-picker-bar">
+          <label for="datePickerInput">Xem ngày khác:</label>
+          <input type="date" id="datePickerInput" onchange="onDateSelected(this.value)">
+        </div>
+
+        <p class="prayer-intro">Lạy Chúa, xin cho các linh hồn tôi tớ Chúa có tên dưới đây được nghỉ yên muôn đời, và cho ánh sáng ngàn thu chiếu soi cho các linh hồn ấy. Amen.</p>
+        
+        <div id="anniversaryCountHeader" class="anniversary-count-header">Đang tải danh sách...</div>
+        <div id="todayAnniversaryList" class="today-grid"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: HÌNH ẢNH NHÀ CHỜ PHỤC SINH -->
+    <div id="tabGallery" class="tab-content">
+      <div class="gallery-section">
+        <div class="gallery-header-row">
+          <h3>Vọng Phục Sinh Đường</h3>
+          <span class="gallery-subtitle">11 hình · bấm vào hình để xem lớn</span>
+        </div>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-thumb">🏛️</div>
+            <span>Khuôn viên Nhà chờ</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🕯️</div>
+            <span>Gian thờ chính</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🕊️</div>
+            <span>Dãy ô hài cốt I</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">✝️</div>
+            <span>Dãy ô hài cốt II</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🌸</div>
+            <span>Bàn thờ các linh hồn</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🌿</div>
+            <span>Không gian tĩnh nguyện</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🕯️</div>
+            <span>Khu vực thắp nến</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">⛪</div>
+            <span>Góc nhìn từ trong ra</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">📖</div>
+            <span>Khu vực sách nguyện</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">✨</div>
+            <span>Chi tiết trang trí</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb">🕊️</div>
+            <span>Toàn cảnh Nhà chờ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer>
-    <p class="prayer">"Chúng con cậy vì danh Chúa nhân từ, cho các linh hồn được lên chốn nghỉ ngơi.</br>Hằng xem thấy mặt Đức Chúa Trời sáng láng vui vẻ vô cùng. Amen."</p>
+    <p class="prayer">“Xin cho các linh hồn được nghỉ yên muôn đời.”<br>Nhập tên, tên thánh, năm mất hoặc mã số để tìm vị trí hài cốt.</p>
     <p>© CHATAMVN 2026 | Nhà Chờ Phục Sinh - Giáo xứ Thánh Phanxicô Xaviê Chợ Lớn</p>
   </footer>
 
-  <!-- Gọi file script riêng biệt -->
   <script src="js/main.js"></script>
 </body>
 </html>
